@@ -10,7 +10,7 @@ import RateLimiter from "./middlewares/RateLimiter.js";
 import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
 
 // DB Connection
-// import connectDB from "./config/DB.js";
+import connectDB from "./config/DB.js";
 
 
 // Routes
@@ -34,7 +34,7 @@ const app = express();
 app.use(SecurityHeaders);
 
 // === MongoDB Connection ===
-// connectDB();
+connectDB();
 
 // === Global Middlewares ===
 app.use(express.json());
