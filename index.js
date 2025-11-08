@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 // Middlewares
 import ErrorHandler from "./middlewares/ErrorHandler.js";
 // import ErrorLogger from "./middlewares/ErrorLogger.js";
-// import RateLimiter from "./middlewares/RateLimiter.js";
+import RateLimiter from "./middlewares/RateLimiter.js";
 // import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
 
 // DB Connection
@@ -71,7 +71,7 @@ app.use(
 // }
 
 // === Rate Limiter
-// app.use(RateLimiter);
+app.use(RateLimiter);
 
 // === Logger Middleware for logging errors
 // app.use(ErrorLogger);
