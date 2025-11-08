@@ -14,7 +14,7 @@ import connectDB from "./config/DB.js";
 
 
 // Routes
-// import AuthRoutes from "./routes/AuthRoutes.js";
+import AuthRoutes from "./routes/AuthRoutes.js";
 // import AgencyRoutes from "./routes/AgencyRoutes.js";
 // import OfficeRoutes from "./routes/OfficeRoutes.js";
 // import TagsRoutes from "./routes/TagsRoutes.js";
@@ -82,7 +82,7 @@ app.get("/", (req, res) => {
 })
 
 // // === Routes ===
-// app.use("/api", AuthRoutes);
+app.use("/api", AuthRoutes);
 // app.use("/api", DashboardRoutes);
 // app.use("/api/agency", AgencyRoutes);
 // app.use("/api/office", OfficeRoutes);
