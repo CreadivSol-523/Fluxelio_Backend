@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
 // Middlewares
 import ErrorHandler from "./middlewares/ErrorHandler.js";
@@ -37,7 +37,7 @@ connectDB();
 
 // === Global Middlewares ===
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
@@ -63,7 +63,7 @@ if (process.env.NODE_ENV !== "production") {
     express.static("uploads")
   );
 } else {
-  console.log("⚠️ Skipping /uploads static serve in production (Vercel)");
+  console.log("⚠️ Skipping /uploads static serve in production");
 }
 
 // === Rate Limiter
@@ -76,7 +76,7 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "OK!" });
 });
 
-// === Routes ===
+// // === Routes ===
 app.use("/api", AuthRoutes);
 app.use("/api", DashboardRoutes);
 app.use("/api/agency", AgencyRoutes);
@@ -89,12 +89,14 @@ app.use("/api/operator", OperatorRoutes);
 app.use("/api/support", SupportRoutes);
 app.use("/api", ContactRoutes);
 
-// === Error Handler
-// app.use(ErrorHandler);
+// // === Error Handler
+app.use(ErrorHandler);
 
 // === Server Start ===
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on http://localhost:${PORT}`);
+// });
+
+export default app;
