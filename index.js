@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 // Middlewares
 import ErrorHandler from "./middlewares/ErrorHandler.js";
-// import ErrorLogger from "./middlewares/ErrorLogger.js";
+import ErrorLogger from "./middlewares/ErrorLogger.js";
 // import RateLimiter from "./middlewares/RateLimiter.js";
 // import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
 
@@ -74,7 +74,7 @@ app.use(
 // app.use(RateLimiter);
 
 // === Logger Middleware for logging errors
-// app.use(ErrorLogger);
+app.use(ErrorLogger);
 
 
 app.get("/", (req, res) => {
