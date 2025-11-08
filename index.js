@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import ErrorHandler from "./middlewares/ErrorHandler.js";
 // import ErrorLogger from "./middlewares/ErrorLogger.js";
 import RateLimiter from "./middlewares/RateLimiter.js";
-// import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
+import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
 
 // DB Connection
 // import connectDB from "./config/DB.js";
@@ -31,7 +31,7 @@ dotenv.config();
 
 const app = express();
 
-// app.use(SecurityHeaders);
+app.use(SecurityHeaders);
 
 // === MongoDB Connection ===
 // connectDB();
