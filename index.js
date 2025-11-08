@@ -49,26 +49,26 @@ app.use(
 );
 
 // === Security Header Middleware ===
-// if (process.env.NODE_ENV !== "production") {
-//   app.use(
-//     "/uploads",
-//     (req, res, next) => {
-//       const origin = req.headers.origin;
-//       if (allowedOrigins.includes(origin)) {
-//         res.header("Access-Control-Allow-Origin", origin);
-//       }
-//       res.header("Access-Control-Allow-Methods", "GET");
-//       res.header(
-//         "Access-Control-Allow-Headers",
-//         "Origin, X-Requested-With, Content-Type, Accept"
-//       );
-//       next();
-//     },
-//     express.static("uploads")
-//   );
-// } else {
-//   console.log("⚠️ Skipping /uploads static serve in production");
-// }
+if (process.env.NODE_ENV !== "production") {
+  app.use(
+    "/uploads",
+    (req, res, next) => {
+      const origin = req.headers.origin;
+      if (allowedOrigins.includes(origin)) {
+        res.header("Access-Control-Allow-Origin", origin);
+      }
+      res.header("Access-Control-Allow-Methods", "GET");
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      next();
+    },
+    express.static("uploads")
+  );
+} else {
+  console.log("⚠️ Skipping /uploads static serve in production");
+}
 
 // === Rate Limiter
 app.use(RateLimiter);
