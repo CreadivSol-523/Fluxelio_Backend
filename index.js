@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 // import mongoose from "mongoose";
 
 // Middlewares
-// import ErrorHandler from "./middlewares/ErrorHandler.js";
+import ErrorHandler from "./middlewares/ErrorHandler.js";
 // import ErrorLogger from "./middlewares/ErrorLogger.js";
 // import RateLimiter from "./middlewares/RateLimiter.js";
 // import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
@@ -95,7 +95,7 @@ app.get("/", (req, res) => {
 // app.use("/api", ContactRoutes);
 
 // // === Error Handler
-// app.use(ErrorHandler);
+app.use(ErrorHandler);
 
 // === Server Start ===
 const PORT = process.env.PORT || 5000;
