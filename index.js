@@ -15,16 +15,16 @@ import connectDB from "./config/DB.js";
 
 // Routes
 import AuthRoutes from "./routes/AuthRoutes.js";
-// import AgencyRoutes from "./routes/AgencyRoutes.js";
-// import OfficeRoutes from "./routes/OfficeRoutes.js";
-// import TagsRoutes from "./routes/TagsRoutes.js";
-// import InvitationRoutes from "./routes/InvitationRoutes.js";
-// import OperatorRoutes from "./routes/OperatorRoutes.js";
-// import ParcelRoutes from "./routes/ParcelRoutes.js";
-// import UserRoutes from "./routes/UserRoutes.js";
-// import ContactRoutes from "./routes/ContactRoutes.js";
-// import SupportRoutes from "./routes/SupportRoutes.js";
-// import DashboardRoutes from "./routes/DashboardRoutes.js";
+import AgencyRoutes from "./routes/AgencyRoutes.js";
+import OfficeRoutes from "./routes/OfficeRoutes.js";
+import TagsRoutes from "./routes/TagsRoutes.js";
+import InvitationRoutes from "./routes/InvitationRoutes.js";
+import OperatorRoutes from "./routes/OperatorRoutes.js";
+import ParcelRoutes from "./routes/ParcelRoutes.js";
+import UserRoutes from "./routes/UserRoutes.js";
+import ContactRoutes from "./routes/ContactRoutes.js";
+import SupportRoutes from "./routes/SupportRoutes.js";
+import DashboardRoutes from "./routes/DashboardRoutes.js";
 import { allowedOrigins } from "./utils/AllowedOrigins.js";
 
 dotenv.config();
@@ -83,16 +83,16 @@ app.get("/", (req, res) => {
 
 // // === Routes ===
 app.use("/api", AuthRoutes);
-// app.use("/api", DashboardRoutes);
-// app.use("/api/agency", AgencyRoutes);
-// app.use("/api/office", OfficeRoutes);
-// app.use("/api/user", UserRoutes);
-// app.use("/api/tags", TagsRoutes);
-// app.use("/api/invite", InvitationRoutes);
-// app.use("/api/parcel", ParcelRoutes);
-// app.use("/api/operator", OperatorRoutes);
-// app.use("/api/support", SupportRoutes);
-// app.use("/api", ContactRoutes);
+app.use("/api", DashboardRoutes);
+app.use("/api/agency", AgencyRoutes);
+app.use("/api/office", OfficeRoutes);
+app.use("/api/user", UserRoutes);
+app.use("/api/tags", TagsRoutes);
+app.use("/api/invite", InvitationRoutes);
+app.use("/api/parcel", ParcelRoutes);
+app.use("/api/operator", OperatorRoutes);
+app.use("/api/support", SupportRoutes);
+app.use("/api", ContactRoutes);
 
 // // === Error Handler
 app.use(ErrorHandler);
