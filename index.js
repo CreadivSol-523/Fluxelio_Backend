@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-// import dotenv from "dotenv";
+import dotenv from "dotenv";
 // import mongoose from "mongoose";
 
 // Middlewares
@@ -27,7 +27,7 @@ import cors from "cors";
 // import DashboardRoutes from "./routes/DashboardRoutes.js";
 import { allowedOrigins } from "./utils/AllowedOrigins.js";
 
-// dotenv.config();
+dotenv.config();
 
 const app = express();
 
