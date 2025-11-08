@@ -12,7 +12,6 @@ import SecurityHeaders from "./middlewares/HelmetMiddleware.js";
 // DB Connection
 import connectDB from "./config/DB.js";
 
-
 // Routes
 import AuthRoutes from "./routes/AuthRoutes.js";
 import AgencyRoutes from "./routes/AgencyRoutes.js";
@@ -57,10 +56,7 @@ app.use(
       res.header("Access-Control-Allow-Origin", origin);
     }
     res.header("Access-Control-Allow-Methods", "GET");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   },
   express.static("uploads")
@@ -72,10 +68,9 @@ app.use(RateLimiter);
 // === Logger Middleware for logging errors
 app.use(ErrorLogger);
 
-
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "OK!" })
-})
+  res.status(200).json({ message: "OK!" });
+});
 
 // === Routes ===
 app.use("/api", AuthRoutes);
@@ -96,6 +91,8 @@ app.use(ErrorHandler);
 // === Server Start ===
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on http://localhost:${PORT}`);
+// });
+
+export default app;
